@@ -3,7 +3,7 @@ from datetime import datetime
 import pytz
 
 
-# from ethiopian_date import EthiopianDateConverter as ethiopian
+from ethiopian_date import EthiopianDateConverter as ethiopian
 app = FastAPI()
 
 #from fastapi import FastAPI
