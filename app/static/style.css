@@ -1,0 +1,21 @@
+/* Custom styles to complement Tailwind */
+body {
+    background: radial-gradient(circle at top left, #1e293b, #0f172a);
+    font-family: 'Inter', sans-serif;
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#clock {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Ensure Amharic text looks clean */
+[lang="am"] {
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
