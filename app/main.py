@@ -8,6 +8,16 @@ from ethiopian_date import EthiopianDateConverter as ethiopian
 
 app = FastAPI()
 
+# --- HEALTH CHECK FOR AWS LOAD BALANCER ---
+@app.get("/health")
+def health_check():
+    """
+    Standard endpoint for AWS ALB to verify the service is up.
+    Returns a 200 OK status.
+    """
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+# ------------------------------------------
+
 # Tell FastAPI where to find your HTML and CSS
 templates = Jinja2Templates(directory="app/templates")
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -36,14 +46,11 @@ def get_today(
         day = day_translations.get(day_en, day_en) if lang == "am" else day_en
 
         if calendar == "ethiopian":
-            # TRY THIS FIRST (Most common for newer versions):
             try:
                 eth_date = ethiopian.from_gregorian(now.year, now.month, now.day)
             except AttributeError:
-                # USE THIS IF THE FIRST ONE FAILS (Common in older versions):
                 eth_date = ethiopian.to_ethiopian(now.year, now.month, now.day)
             
-            # Formats the result as Day/Month/Year
             date = f"{eth_date.day}/{eth_date.month}/{eth_date.year}"
         else:
             date = now.strftime("%Y-%m-%d")
