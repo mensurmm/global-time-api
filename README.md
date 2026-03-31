@@ -1,18 +1,40 @@
 # 🌍 Global Time & Calendar API
 
-A professional FastAPI-based service that provides a real-time web dashboard and API for global time tracking .
+A production-style FastAPI application deployed on AWS using a scalable and highly available architecture.
 
-- 🌐 Global timezone support
-- 🗓️ Gregorian & Ethiopian calendar conversion
-- 🌍 Multilingual day names (English + Amharic)
+This project provides a real-time web dashboard and API for global time tracking with multilingual and multi-calendar support.
+
 
 ## 🚀 Features
 
-- **Interactive Dashboard:** A modern, responsive UI built with Tailwind CSS.
-- **Global Timezone Support:** Get the current time for any location using `pytz`.
-- **Calendar Conversion:** Seamlessly switch between Gregorian and Ethiopian calendars.
-- **Multilingual Support:** Day names available in both English and Amharic.
-- **Auto-Documentation:** Interactive API exploration via Swagger UI.
+- **🌐 Global timezone support (via pytz)**
+- **🗓️ Gregorian & Ethiopian calendar conversion**
+- **🌍 Multilingual day names (English + Amharic)**
+- **🎨 Interactive UI (Tailwind CSS + Jinja2)**
+- **☁️ Deployed on AWS with scalability and fault tolerance**
+## ☁️ AWS Architecture
+![UI](app/templates/diagram%20.png)
+## 🔧 Services Used
+- **Amazon EC2 (compute)**
+- **Elastic Load Balancer (traffic distribution)**
+- **Auto Scaling Group (dynamic scaling)**
+- **Launch Templates (automated instance setup)**
+- **Security Groups (network control)**
+- **Multi-AZ deployment (high availability)**
+
+## 💡 Key Cloud Concepts Demonstrated
+- **High Availability (Multi-AZ deployment)**
+- **Fault Tolerance (auto-replacement of failed instances)**
+- **Scalability (automatic instance scaling)**
+- **Load Distribution (via Load Balancer)**
+- **Infrastructure as Code mindset (user data automation)**
+- **Secure architecture (restricted EC2 access)**
+
+## 🌐 Live Access
+
+Access the application via Load Balancer:
+
+http://<global-time-alb-875872340.eu-west-1.elb.amazonaws.com>
 
 ## 📁 Project Structure
 
@@ -28,7 +50,7 @@ global-time-api/
 
  ```
 
-## 📌 Endpoints
+## 📌 API Endpoints
 
 ### 1. Get Current Time
 GET /time?timezone=Africa/Addis_Ababa
@@ -58,9 +80,9 @@ GET /today?calendar=ethiopian&lang=am
 
 ## ▶️ Run Locally
 
-**1. Clone the repository:**
+** 1. Clone the repository: **
 ```bash
-git clone [https://github.com/your-username/global-time-api.git](https://github.com/your-username/global-time-api.git)
+git clone [https://github.com/mensurmm/global-time-api.git](https://github.com/mensurmm/global-time-api.git)
 cd global-time-api
 
 ```
@@ -86,13 +108,37 @@ uvicorn app.main:app --reload
 ---
 
 **5. Access the App:**
-Open 
+Open in browser
 ```bash
 
 http://127.0.0.1:8000 
 ``` 
-in your browser to see the dashboard.
+## 📸 Screenshots
+
+# 🔹 Dashboard UI
+
+Add screenshot here (save inside repo as /screenshots/ui.png)
+![UI](app/templates/ip.PNG)
+![UI](app/templates/dns.PNG)
+
+
+
+# 🔹 Target Group (healthy)
+![UI](app/templates/health.PNG)
 
 ---
 
+## 🧠 What I Learned
+- **Designing scalable cloud architectures on AWS**
+- **Deploying backend services to EC2**
+- **Configuring Load Balancers and Auto Scaling**
+- **Debugging real-world cloud issues (health checks, user data, security groups)**
 
+## 🚀 Future Improvements
+- **Custom domain using Route 53**
+- **HTTPS (SSL certificate)**
+- **CI/CD pipeline**
+- **Containerization (Docker)**
+👨‍💻 Author
+
+# Built as part of AWS Solutions Architect learning journey.
